@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class GUI implements ActionListener{
 
-	private int count = 0;
+	private boolean flipped = true; 
 	private JLabel label;
 	private JFrame frame;
 	private JPanel panel;
@@ -23,7 +23,7 @@ public class GUI implements ActionListener{
 		JButton button = new JButton("Click");
 		button.addActionListener(this);
 		
-		label = new JLabel("Number of clicks: 0    ");
+		label = new JLabel("Front");
 		
 		panel = new JPanel();
 		panel.setBorder(BorderFactory.createEmptyBorder(200,200,200,200));
@@ -44,8 +44,14 @@ public class GUI implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		count++;
-		label.setText("Number of clicks: " + count);
+		
+		if(flipped == true) {
+			label.setText("Back");
+			flipped = false;
+		} else {
+			label.setText("Front");
+			flipped = true;
+		}
 	}
 
 }
