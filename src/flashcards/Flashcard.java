@@ -1,28 +1,44 @@
 package flashcards;
-
 import java.awt.Color;
-
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
-public class Flashcard {
+public class Flashcard extends JPanel implements ActionListener {
 
-	public static JPanel makeFlashcard() {
+	private boolean flipped = true; 
+	JLabel frontText = new JLabel("This is the front text!");
+	JLabel backText = new JLabel("This is the back text!");
+	
+	public Flashcard() {
 		
-		JLabel frontText = new JLabel("This is the front text!");
-		JLabel backText = new JLabel("This is the back text!");
+		JButton flipButton = new JButton("Flip");
+		flipButton.addActionListener(this);
 		
-		Border border = BorderFactory.createLineBorder(Color.red);
+		backText.setVisible(false);
+		setBorder(BorderFactory.createLineBorder(Color.red));
+		setPreferredSize(new Dimension(350, 190));
+		setLayout(new GridLayout(0,1));
 		
-		JPanel flashcard = new JPanel();
-		flashcard.add(frontText);
-		flashcard.add(backText);
-		flashcard.setSize(300,500);
-		flashcard.setBorder(border);
+		add(frontText);
+		add(backText);
+		add(flipButton);
 		
-		return flashcard;
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		flipped = !flipped;
+		frontText.setVisible(flipped);
+		backText.setVisible(!flipped);
+		
 	}
 
 }
+
