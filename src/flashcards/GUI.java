@@ -1,5 +1,5 @@
 package flashcards;
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
 public class GUI implements ActionListener{
 
 	private boolean flipped = true; 
@@ -17,27 +18,35 @@ public class GUI implements ActionListener{
 	private JPanel panel;
 	
 	public GUI(){
-
+		
 		frame = new JFrame();
-		
-		JButton button = new JButton("Click");
-		button.addActionListener(this);
-		
 		label = new JLabel("Front");
+		JPanel flashcard = Flashcard.makeFlashcard();
+		
+		JButton flipButton = new JButton("Flip");
+		JButton addButton = new JButton("Add");
+		flipButton.addActionListener(this);
 		
 		panel = new JPanel();
 		panel.setBorder(BorderFactory.createEmptyBorder(200,200,200,200));
-		panel.setLayout(new GridLayout(0, 1));
-		panel.add(button);
-		panel.add(label);
+		panel.setLayout(new GridLayout());
+		panel.add(flashcard);
+		//panel.add(flipButton);
+		//panel.add(label);
+		//panel.add(addButton);
 		
-		frame.add(panel, BorderLayout.CENTER);
+		panel.setBackground(Color.pink);
+		
+		frame.add(panel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Flashcards");
 		frame.pack();
 		frame.setVisible(true);
+		
+		
 	}
 	
+
 	public static void main(String[] args) {
 		new GUI();
 	}
