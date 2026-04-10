@@ -21,6 +21,7 @@ public class GUI{
 		
 		Flashcard flashcard = new Flashcard();
 		JButton addButton = new JButton("Add");
+		JButton libraryButton = new JButton("Library");
 		
 		panel = new JPanel();
 		panel.setBorder(BorderFactory.createEmptyBorder(200,200,200,200));
@@ -28,6 +29,7 @@ public class GUI{
 		panel.setBackground(Color.pink);
 		panel.add(flashcard);
 		panel.add(addButton);
+		panel.add(libraryButton);
 		
 		
 		frame.add(panel);
