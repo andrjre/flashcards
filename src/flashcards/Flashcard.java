@@ -1,12 +1,14 @@
 package flashcards;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.beans.EventHandler;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -34,6 +36,7 @@ public class Flashcard extends JPanel implements MouseListener {
 		textArea.add(frontText);
 		textArea.add(backText);
 		
+		this.setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
 	
 	@Override
