@@ -24,7 +24,7 @@ public class Flashcard extends JPanel implements MouseListener {
 		addMouseListener(this);
 		backText.setVisible(false);
 		setBorder(BorderFactory.createLineBorder(Color.red));
-		setPreferredSize(new Dimension(600,400));
+		setPreferredSize(new Dimension(300,200));
 		setLayout(new BorderLayout());
 		
 		JPanel textArea = new JPanel();
